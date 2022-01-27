@@ -68,6 +68,8 @@ function App() {
                   val.name.toLowerCase().includes(user.toLowerCase())
                 ) {
                   return val;
+                } else if (val.id.toLowerCase().includes(user.toLowerCase())) {
+                  return val;
                 }
               })
               .map((item) => {
@@ -76,6 +78,7 @@ function App() {
                     <span>{item.id}</span>
                     <p>{item.name}</p>
                     <h4>{item.address}</h4>
+                    <h4>{item.pincode}</h4>
                   </li>
                 );
               })}
