@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import UserData from "./UserData";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+import UserData from './UserData';
+import './App.css';
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
   const [data, setData] = useState(UserData);
   const [icon, setIcon] = useState(false);
 
@@ -22,7 +22,7 @@ function App() {
   const handleInput = (e) => {
     setUser(e.target.value);
 
-    if (user === "") {
+    if (user === '') {
       setIcon(true);
     }
   };
@@ -32,36 +32,37 @@ function App() {
   };
 
   const remove = () => {
-    setUser("");
+    setUser('');
   };
 
   return (
-    <div className="container">
-      <div className="container__box">
+    <div className='container'>
+      <div className='container__box'>
         <form onSubmit={handleInputData}>
-          <div className="input__serchIcon">
-            <box-icon name="search" color="#323232"></box-icon>
+          <div className='input__serchIcon'>
+            <box-icon name='search' color='#323232'></box-icon>
           </div>
           <input
-            type="text"
+            type='text'
             value={user}
             onChange={handleInput}
-            name="user"
-            autoComplete="off"
+            name='user'
+            autoComplete='off'
+            placeholder='Search Users'
           />
 
           {icon ? (
-            <div className="input_removeIcon" onClick={remove}>
-              <box-icon name="x" size="32px" color="#323232"></box-icon>
+            <div className='input_removeIcon' onClick={remove}>
+              <box-icon name='x' size='32px' color='#323232'></box-icon>
             </div>
           ) : null}
         </form>
 
         <ul>
-          <div className="container__list">
+          <div className='container__list'>
             {data
               .filter((val) => {
-                if (user === "") {
+                if (user === '') {
                   return val;
                 } else if (
                   val.name.toLowerCase().includes(user.toLowerCase())
